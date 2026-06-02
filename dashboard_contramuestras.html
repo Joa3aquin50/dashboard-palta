@@ -1,0 +1,287 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f2f5;--bg2:#fff;--bg3:#e4e6ea;--t1:#111827;--t2:#4b5563;--t3:#9ca3af;--bd:#d1d5db;--bd2:#9ca3af;}
+@media(prefers-color-scheme:dark){:root{--bg:#111827;--bg2:#1f2937;--bg3:#374151;--t1:#f9fafb;--t2:#9ca3af;--t3:#6b7280;--bd:#374151;--bd2:#4b5563;}}
+body{background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--t1)}
+.topbar{background:#132f5e;color:#fff;padding:11px 18px;display:flex;align-items:center;gap:12px;border-radius:10px 10px 0 0}
+.ttl{font-size:14px;font-weight:600}.tsub{font-size:10px;color:#8aadde;margin-top:2px}
+.sbadge{margin-left:auto;background:#c0392b;font-size:11px;padding:2px 10px;border-radius:20px;font-weight:600}
+.ctrl{background:var(--bg2);padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid var(--bd)}
+.tog{display:flex;border:1px solid var(--bd2);border-radius:20px;overflow:hidden}
+.mtab{font-size:11px;font-weight:500;padding:5px 14px;cursor:pointer;background:var(--bg2);color:var(--t2);white-space:nowrap}
+.mtab.on{background:#132f5e;color:#fff}
+.fg{display:flex;align-items:center;gap:4px}
+.fl{font-size:11px;color:var(--t2);white-space:nowrap}
+select{font-size:11px;padding:3px 6px;border-radius:6px;border:1px solid var(--bd);background:var(--bg2);color:var(--t1)}
+.dtabs{display:flex;gap:4px;margin-left:auto}
+.dtab{font-size:11px;font-weight:500;padding:4px 11px;border-radius:20px;border:1px solid var(--bd2);cursor:pointer;background:var(--bg2);color:var(--t2)}
+.dtab.on{background:#132f5e;color:#fff;border-color:#132f5e}
+.main{padding:14px;display:flex;flex-direction:column;gap:14px}
+.slbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--t3);text-transform:uppercase;padding-bottom:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.ch{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.fdot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.cn{font-size:13px;font-weight:600;color:var(--t1)}.cn2{font-size:10px;color:var(--t3)}
+.krow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:12px}
+.krow2{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:12px}
+.kpi{background:var(--bg3);border-radius:6px;padding:7px 8px}
+.kv{font-size:17px;font-weight:600;color:var(--t1)}
+.kl{font-size:9px;color:var(--t2);margin-top:1px}
+.clabel{font-size:10px;color:var(--t2);margin-bottom:5px;margin-top:11px}
+.cw{position:relative;width:100%;height:115px}
+.legrow{display:flex;gap:10px;flex-wrap:wrap}
+.li{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t2)}
+.lsq{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.defrow{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.di{display:flex;align-items:center;gap:5px}
+.dn{font-size:10px;color:var(--t2);width:120px;flex-shrink:0;text-align:right}
+.dbbg{flex:1;background:var(--bg3);border-radius:3px;height:11px;overflow:hidden}
+.dbfill{height:100%;border-radius:3px}
+.dv{font-size:10px;font-weight:600;width:36px;text-align:right;flex-shrink:0}
+.tcard{background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.thead{font-size:12px;font-weight:600;margin-bottom:10px;color:var(--t1)}
+.tcw{position:relative;width:100%;height:160px}
+.tleg{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.empty{background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:36px;text-align:center;color:var(--t2);font-size:12px}
+</style>
+
+<div class="topbar">
+  <div><div class="ttl">Mission Produce — Contramuestras Palta Hass</div><div class="tsub">Investigación Poscosecha · 01–06–2026</div></div>
+  <div class="sbadge">Semana 23</div>
+</div>
+<div class="ctrl">
+  <div class="tog">
+    <div class="mtab on" id="m-am">🟢 AM — Fruta fría</div>
+    <div class="mtab" id="m-dm">🟠 DM — Fruta madurada</div>
+  </div>
+  <div class="fg"><span class="fl">Fundo</span><select id="f-fu"><option value="">Todos</option><option>Inagro</option><option>Beggie</option><option>Arato</option></select></div>
+  <div class="fg"><span class="fl">Destino</span><select id="f-de"><option value="">Todos</option></select></div>
+  <div class="fg"><span class="fl">Calibre</span><select id="f-ca"><option value="">Todos</option></select></div>
+  <div class="fg"><span class="fl">Semana</span><select id="f-se"><option value="">Todas</option></select></div>
+  <div class="dtabs">
+    <div class="dtab on" data-d="18 Días">18 días</div>
+    <div class="dtab" data-d="25 Días">25 días</div>
+    <div class="dtab" data-d="32 Días">32 días</div>
+  </div>
+</div>
+<div class="main">
+  <div class="slbl" id="top-lbl">Resultados — 18 días</div>
+  <div class="grid" id="cards"></div>
+  <div class="legrow" id="leg"></div>
+  <div class="slbl" style="margin-top:6px">Evolución por días de almacenamiento (consolidado)</div>
+  <div class="grid" id="tcards"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const AM=[{"Semana":"Sem18","Fundo":"Beggie","País Destino":"España","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"1":16.7,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Japón","Calibre":40,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"3":58.3,"2":41.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":83.3,"1":16.7},"mp":{"0":91.7,"1":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":41.7,"3":33.3,"1":16.7,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"2":50.0,"3":25.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":50.0,"1":29.2,"3":20.8},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"3":16.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":70.8,"1":25.0,"3":4.2},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":36,"dl":{"2":61.1,"3":30.6,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"España","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"3":58.3,"2":41.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Japón","Calibre":40,"Fungicida":"Flu","Días":"25 Días","n":12,"dl":{"2":83.3,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"25 Días","n":12,"dl":{"2":58.3,"3":25.0,"1":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"TBZ","Días":"25 Días","n":12,"dl":{"3":41.7,"1":25.0,"2":25.0,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu","Días":"25 Días","n":12,"dl":{"2":75.0,"3":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":24,"dl":{"2":75.0,"3":16.7,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":58.3,"3":25.0,"1":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":24,"dl":{"2":66.7,"3":20.8,"1":12.5},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"25 Días","n":36,"dl":{"2":47.2,"3":38.9,"4":11.1,"1":2.8},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":50.0,"3":33.3,"1":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"32 Días","n":12,"dl":{"2":66.7,"3":25.0,"1":8.3},"mp":{"0":83.3,"1":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"TBZ","Días":"32 Días","n":12,"dl":{"3":66.7,"2":16.7,"4":16.7},"mp":{"0":83.3,"1":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"2":58.3,"3":25.0,"4":8.3,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"2":50.0,"3":33.3,"1":16.7},"mp":{"0":91.7,"1":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"3":50.0,"2":41.7,"4":8.3},"mp":{"0":75.0,"1":16.7,"2":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"3":41.7,"2":41.7,"4":16.7},"mp":{"0":83.3,"1":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":48,"Fungicida":"Sin Fung","Días":"18 Días","n":12,"dl":{"2":58.3,"1":25.0,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":24,"dl":{"2":62.5,"1":25.0,"3":12.5},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Korea","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":58.3,"1":33.3,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":66.7,"1":33.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":36,"dl":{"2":47.2,"1":33.3,"3":19.4},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Tailandia","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":58.3,"1":41.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":32,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"1":41.7,"3":33.3,"2":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":50.0,"3":25.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":58.3,"1":33.3,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":41.7,"3":33.3,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":48,"Fungicida":"Sin Fung","Días":"25 Días","n":12,"dl":{"2":58.3,"1":25.0,"3":16.7},"mp":{"1":75.0,"0":25.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"25 Días","n":24,"dl":{"2":70.8,"3":16.7,"1":12.5},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Korea","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":50.0,"1":41.7,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":91.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":58.3,"3":25.0,"1":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"25 Días","n":36,"dl":{"2":63.9,"3":27.8,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Tailandia","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":75.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":32,"Fungicida":"TBZ","Días":"25 Días","n":12,"dl":{"2":66.7,"1":25.0,"3":8.3},"mp":{"0":83.3,"1":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":50.0,"3":41.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"3":41.7,"2":33.3,"4":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":83.3,"3":8.3,"1":8.3},"mp":{"0":91.7,"1":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":48,"Fungicida":"Sin Fung","Días":"32 Días","n":12,"dl":{"2":58.3,"3":25.0,"4":16.7},"mp":{"1":50.0,"0":50.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Korea","Calibre":60,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"2":58.3,"3":41.7},"mp":{"1":50.0,"0":50.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"2":50.0,"3":33.3,"4":8.3,"1":8.3},"mp":{"0":66.7,"1":33.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":32,"Fungicida":"TBZ","Días":"32 Días","n":12,"dl":{"3":50.0,"2":25.0,"4":25.0},"mp":{"0":75.0,"1":25.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"3":33.3,"2":33.3,"4":25.0,"1":8.3},"mp":{"0":83.3,"1":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"32 Días","n":12,"dl":{"2":58.3,"3":33.3,"1":8.3},"mp":{"0":66.7,"1":33.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Japón","Calibre":28,"Fungicida":"Sin Fung","Días":"18 Días","n":12,"dl":{"3":50.0,"2":33.3,"1":8.3,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Korea","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":50.0,"1":33.3,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":12,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"1":91.7,"2":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":84,"dl":{"2":33.3,"1":32.1,"3":31.0,"4":3.6},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":97.6,"2":2.4},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"1":83.3,"3":8.3,"2":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":83.3,"1":8.3,"2":8.3},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":66.7,"3":25.0,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":36,"dl":{"3":41.7,"2":41.7,"1":8.3,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"UK","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":50.0,"3":41.7,"4":4.2,"1":4.2},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":60,"dl":{"3":51.7,"2":31.7,"4":10.0,"1":6.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":98.3,"3":1.7},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Japón","Calibre":28,"Fungicida":"Sin Fung","Días":"25 Días","n":12,"dl":{"3":58.3,"2":41.7},"mp":{"1":75.0,"0":25.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Korea","Calibre":18,"Fungicida":"TBZ","Días":"25 Días","n":12,"dl":{"2":66.7,"1":33.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":12,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"1":75.0,"2":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"1":100.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":50.0,"1":33.3,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":83.3,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"25 Días","n":24,"dl":{"2":50.0,"3":37.5,"4":12.5},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"España","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":50.0,"3":29.2,"4":16.7,"1":4.2},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"España","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":50.0,"3":25.0,"1":16.7,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":36,"dl":{"2":58.3,"3":27.8,"1":11.1,"4":2.8},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":48,"dl":{"2":56.2,"1":27.1,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":54.2,"1":25.0,"3":16.7,"4":4.2},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":95.8,"1":4.2},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":50.0,"3":41.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":41.7,"3":37.5,"4":20.8},"mp":{"0":95.8,"1":4.2},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Tailandia","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":50.0,"3":33.3,"1":8.3,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"UK","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"3":41.7,"2":33.3,"4":16.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"1":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"25 Días","n":24,"dl":{"2":66.7,"1":33.3},"mp":{"1":83.3,"0":16.7},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"25 Días","n":48,"dl":{"2":75.0,"3":14.6,"1":10.4},"mp":{"0":91.7,"1":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"TBZ","Días":"25 Días","n":12,"dl":{"2":83.3,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"dl":{"2":75.0,"3":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Arato","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"1":79.2,"2":20.8},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":12,"dl":{"3":50.0,"2":41.7,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":24,"dl":{"2":75.0,"3":12.5,"1":8.3,"4":4.2},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":95.8,"2":4.2},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"2":41.7,"3":41.7,"4":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"3":58.3,"2":33.3,"4":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"3":41.7,"2":41.7,"1":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"4":41.7,"2":33.3,"3":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":75.0,"3":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"3":41.7,"2":33.3,"4":25.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":91.7,"1":8.3},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"USA","Calibre":32,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"3":50.0,"4":33.3,"2":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu","Días":"18 Días","n":12,"dl":{"3":50.0,"2":50.0},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"3":41.7,"2":41.7,"4":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":91.7,"1":8.3},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":24,"dl":{"2":45.8,"3":41.7,"4":8.3,"1":4.2},"mp":{"0":91.7,"1":8.3},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Korea","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":12,"dl":{"2":66.7,"1":25.0,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Korea","Calibre":48,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":58.3,"3":41.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":48,"dl":{"2":41.7,"3":41.7,"1":14.6,"4":2.1},"mp":{"0":97.9,"1":2.1},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":24,"dl":{"2":41.7,"1":41.7,"3":16.7},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"1":75.0,"2":16.7,"3":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":91.7,"1":8.3},"pg":{"0":100.0},"hv":{"0":100.0}},{"Semana":"Sem20","Fundo":"Inagro","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"dl":{"2":41.7,"3":33.3,"4":16.7,"1":8.3},"mp":{"0":100.0},"ms":{"0":100.0},"mf":{"0":100.0},"pg":{"0":100.0},"hv":{"0":100.0}}];
+
+const DM=[{"Semana":"Sem18","Fundo":"Beggie","País Destino":"España","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.31,"dm":6.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Japón","Calibre":40,"Fungicida":"Flu","Días":"18 Días","n":6,"fw":1.64,"dm":9.7,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.47,"dm":9.3,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.43,"dm":9.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu","Días":"18 Días","n":6,"fw":1.45,"dm":9.6,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":83.3,"2":16.7}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"fw":1.62,"dm":10.7,"pg":{"0":100.0},"pp":{"0":91.7,"1":8.3},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.19,"dm":9.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":12,"fw":1.59,"dm":11.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":75.0,"1":16.7,"2":8.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":18,"fw":1.3,"dm":9.2,"pg":{"0":100.0},"pp":{"0":88.9,"1":11.1},"ppu":{"0":94.4,"1":5.6},"hp":{"0":100.0},"mh":{"0":77.8,"1":22.2},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.15,"dm":8.3,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"España","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.67,"dm":3.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Japón","Calibre":40,"Fungicida":"Flu","Días":"25 Días","n":6,"fw":1.17,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"25 Días","n":6,"fw":1.12,"dm":4.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":16,"Fungicida":"TBZ","Días":"25 Días","n":6,"fw":1.22,"dm":5.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu","Días":"25 Días","n":6,"fw":1.17,"dm":4.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.01,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.18,"dm":5.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"UK","Calibre":18,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.52,"dm":7.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"25 Días","n":18,"fw":1.38,"dm":4.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":88.9,"2":5.6,"1":5.6},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":48,"Fungicida":"Sin Fung","Días":"18 Días","n":6,"fw":1.2,"dm":8.3,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":12,"fw":1.55,"dm":9.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":25.0,"2":8.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Korea","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.36,"dm":8.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.11,"dm":7.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"2":16.7,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.56,"dm":9.2,"pg":{"0":100.0},"pp":{"0":83.3,"1":16.7},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":50.0,"1":33.3,"2":16.7},"me":{"0":83.3,"1":16.7}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":18,"fw":1.59,"dm":9.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":88.9,"2":5.6,"1":5.6},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Tailandia","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.7,"dm":9.3,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":50.0,"1":33.3,"2":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":32,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.04,"dm":6.0,"pg":{"0":100.0},"pp":{"0":66.7,"2":33.3},"ppu":{"0":83.3,"1":16.7},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.43,"dm":9.8,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"2":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.62,"dm":9.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.82,"dm":10.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":83.3,"1":16.7},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Japón","Calibre":48,"Fungicida":"Sin Fung","Días":"25 Días","n":6,"fw":1.65,"dm":5.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":83.3,"2":16.7},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Korea","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.65,"dm":8.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":16,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.6,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"25 Días","n":12,"fw":1.66,"dm":7.2,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"2":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"Tailandia","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.54,"dm":5.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":32,"Fungicida":"TBZ","Días":"25 Días","n":6,"fw":1.5,"dm":4.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":48,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.39,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem18","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"25 Días","n":6,"fw":1.35,"dm":8.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Japón","Calibre":28,"Fungicida":"Sin Fung","Días":"18 Días","n":6,"fw":1.42,"dm":4.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Korea","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.08,"dm":0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":12,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.4,"dm":5.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":83.3,"1":16.7},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":83.3,"2":16.7}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":18,"fw":1.48,"dm":4.9,"pg":{"0":100.0},"pp":{"0":94.4,"1":5.6},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.42,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":66.7,"1":33.3},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"Países Bajos","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.27,"dm":4.2,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"UK","Calibre":16,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.17,"dm":7.5,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"UK","Calibre":20,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.69,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Beggie","País Destino":"USA","Calibre":40,"Fungicida":"Flu + TBZ","Días":"18 Días","n":18,"fw":1.45,"dm":4.4,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":94.4,"1":5.6},"me":{"0":94.4,"2":5.6}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Japón","Calibre":60,"Fungicida":"Sin Fung","Días":"18 Días","n":12,"fw":1.59,"dm":6.8,"pg":{"0":100.0},"pp":{"0":91.7,"1":8.3},"ppu":{"0":91.7,"1":8.3},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":91.7,"1":8.3}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Korea","Calibre":48,"Fungicida":"TBZ","Días":"18 Días","n":24,"fw":1.48,"dm":7.1,"pg":{"0":100.0},"pp":{"0":95.8,"1":4.2},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":91.7,"1":8.3},"me":{"0":95.8,"1":4.2}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.9,"dm":4.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":83.3,"1":16.7},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"Países Bajos","Calibre":18,"Fungicida":"TBZ","Días":"18 Días","n":6,"fw":1.57,"dm":8.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}},{"Semana":"Sem19","Fundo":"Inagro","País Destino":"USA","Calibre":60,"Fungicida":"Flu + TBZ","Días":"18 Días","n":6,"fw":1.71,"dm":5.0,"pg":{"0":100.0},"pp":{"0":100.0},"ppu":{"0":100.0},"hp":{"0":100.0},"mh":{"0":100.0},"me":{"0":100.0}}];
+
+const AM_GREEN=['#c8e6c9','#66bb6a','#2e7d32','#1b5e20'];
+// MH orange scale: nivel 0 (sin defecto) = muy claro, nivel 1 = medio, nivel 2+ = oscuro
+const MH_ORANGE=['#fff3e0','#ffb74d','#e65100'];
+const FC={'Inagro':'#1a7a4a','Beggie':'#1a3869','Arato':'#c0392b'};
+const AM_SEC=['mp','ms','mf','pg','hv'];
+const AM_LBL={mp:'Moho Peduncular',ms:'Mancha Senescencia',mf:'Manchas por Frío',pg:'Pulpa Gris',hv:'Haces Vasculares'};
+const DM_MK=['mh','pp','ppu','hp','pg','me'];
+const DM_LBL={mh:'Mad. Heterogénea',pp:'Pudrición Pulpa',ppu:'Pudrición Peduncular',hp:'Hongo Peduncular',pg:'Pulpa Gris',me:'Manchas Externas'};
+const DIAS_AM=['18 Días','25 Días','32 Días'];
+const DIAS_DM=['18 Días','25 Días'];
+
+let mode='am', dias='18 Días', cMap={};
+
+['España','Japón','Korea','Países Bajos','Tailandia','UK','USA'].forEach(v=>document.getElementById('f-de').insertAdjacentHTML('beforeend',`<option>${v}</option>`));
+[12,16,18,20,28,32,40,48,60].forEach(v=>document.getElementById('f-ca').insertAdjacentHTML('beforeend',`<option>${v}</option>`));
+['Sem18','Sem19','Sem20'].forEach(v=>document.getElementById('f-se').insertAdjacentHTML('beforeend',`<option>${v}</option>`));
+
+function gf(){return{fu:document.getElementById('f-fu').value,de:document.getElementById('f-de').value,ca:document.getElementById('f-ca').value,se:document.getElementById('f-se').value};}
+function matchF(r,d){const f=gf();return(!d||r.Días===d)&&(!f.fu||r.Fundo===f.fu)&&(!f.de||r['País Destino']===f.de)&&(!f.ca||String(r.Calibre)===f.ca)&&(!f.se||r.Semana===f.se);}
+function pct(c){return+(100-(c&&c[0]||0)).toFixed(1);}
+function trafCol(v){return v>25?'#c0392b':v>10?'#e67e22':v>0?'#f39c12':'#27ae60';}
+function fwCol(v){return v==null?'var(--t1)':v>=1.5?'#27ae60':v>=1.1?'#f39c12':'#c0392b';}
+
+function getFirmeza(fundo,diasVal){
+  const f=gf();
+  const recs=DM.filter(r=>r.Fundo===fundo&&r.Días===diasVal&&(!f.de||r['País Destino']===f.de)&&(!f.ca||String(r.Calibre)===f.ca)&&(!f.se||r.Semana===f.se));
+  let fw=0,fc=0;
+  for(const r of recs)if(r.fw>0){fw+=r.fw*r.n;fc+=r.n;}
+  return fc>0?+(fw/fc).toFixed(2):null;
+}
+
+function aggAM(recs){
+  const m={};
+  for(const r of recs){
+    if(!m[r.Fundo])m[r.Fundo]={n:0,dl:{},sec:{mp:{},ms:{},mf:{},pg:{},hv:{}}};
+    const x=m[r.Fundo];x.n+=r.n;
+    for(const[k,v]of Object.entries(r.dl||{}))x.dl[k]=(x.dl[k]||0)+v*r.n;
+    for(const mk of AM_SEC)for(const[k,v]of Object.entries(r[mk]||{}))x.sec[mk][k]=(x.sec[mk][k]||0)+v*r.n;
+  }
+  for(const x of Object.values(m)){
+    for(const k in x.dl)x.dl[k]=+(x.dl[k]/x.n).toFixed(1);
+    for(const mk of AM_SEC)for(const k in x.sec[mk])x.sec[mk][k]=+(x.sec[mk][k]/x.n).toFixed(1);
+  }
+  return m;
+}
+
+function aggDM(recs){
+  const m={};
+  for(const r of recs){
+    if(!m[r.Fundo])m[r.Fundo]={n:0,fw:0,fc:0,dw:0,dc:0,def:{mh:{},pp:{},ppu:{},hp:{},pg:{},me:{}}};
+    const x=m[r.Fundo];x.n+=r.n;
+    if(r.fw>0){x.fw+=r.fw*r.n;x.fc+=r.n;}
+    if(r.dm>0&&r.dm<100){x.dw+=r.dm*r.n;x.dc+=r.n;}
+    for(const mk of DM_MK)for(const[k,v]of Object.entries(r[mk]||{}))x.def[mk][k]=(x.def[mk][k]||0)+v*r.n;
+  }
+  for(const x of Object.values(m)){
+    x.firmeza=x.fc>0?+(x.fw/x.fc).toFixed(2):null;
+    x.diasMad=x.dc>0?+(x.dw/x.dc).toFixed(1):null;
+    for(const mk of DM_MK)for(const k in x.def[mk])x.def[mk][k]=+(x.def[mk][k]/x.n).toFixed(1);
+  }
+  return m;
+}
+
+function aggTrend(){
+  const src=mode==='am'?AM:DM;
+  const f=gf();
+  const recs=src.filter(r=>(!f.fu||r.Fundo===f.fu)&&(!f.de||r['País Destino']===f.de)&&(!f.ca||String(r.Calibre)===f.ca)&&(!f.se||r.Semana===f.se));
+  const m={};
+  for(const r of recs){
+    if(!m[r.Fundo])m[r.Fundo]={};
+    if(!m[r.Fundo][r.Días])m[r.Fundo][r.Días]={n:0,dl:{},sec:{mp:{},ms:{},mf:{},pg:{},hv:{}},def:{mh:{},pp:{},ppu:{},hp:{},pg:{},me:{}}};
+    const x=m[r.Fundo][r.Días];x.n+=r.n;
+    if(mode==='am'){
+      for(const[k,v]of Object.entries(r.dl||{}))x.dl[k]=(x.dl[k]||0)+v*r.n;
+      for(const mk of AM_SEC)for(const[k,v]of Object.entries(r[mk]||{}))x.sec[mk][k]=(x.sec[mk][k]||0)+v*r.n;
+    } else {
+      for(const mk of DM_MK)for(const[k,v]of Object.entries(r[mk]||{}))x.def[mk][k]=(x.def[mk][k]||0)+v*r.n;
+    }
+  }
+  for(const fu of Object.keys(m))for(const d of Object.keys(m[fu])){
+    const x=m[fu][d];
+    if(mode==='am'){
+      for(const k in x.dl)x.dl[k]=+(x.dl[k]/x.n).toFixed(1);
+      for(const mk of AM_SEC)for(const k in x.sec[mk])x.sec[mk][k]=+(x.sec[mk][k]/x.n).toFixed(1);
+    } else {
+      for(const mk of DM_MK)for(const k in x.def[mk])x.def[mk][k]=+(x.def[mk][k]/x.n).toFixed(1);
+    }
+  }
+  return m;
+}
+
+function killCharts(){Object.values(cMap).forEach(c=>{try{c.destroy()}catch(e){}});cMap={};}
+
+function mkStackedBar(id,dl,pal){
+  const el=document.getElementById(id);if(!el)return;
+  const ds=['1','2','3','4'].map((n,i)=>({label:`Nivel ${n}`,data:[dl[n]||0],backgroundColor:pal[i],borderWidth:0}));
+  cMap[id]=new Chart(el,{type:'bar',data:{labels:[''],datasets:ds},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}},scales:{x:{stacked:true,grid:{display:false},ticks:{display:false}},y:{stacked:true,max:100,ticks:{callback:v=>v+'%',font:{size:10},color:'#888'},grid:{color:'rgba(128,128,128,0.1)'}}}}});
+}
+
+function mkTrendAM(id,byDias){
+  const el=document.getElementById(id);if(!el)return;
+  const labels=DIAS_AM.filter(d=>byDias[d]&&byDias[d].n>0);
+  if(!labels.length)return;
+  const ds=['1','2','3','4'].map((n,i)=>({label:`N${n}`,data:labels.map(d=>+(byDias[d]&&byDias[d].dl[n]||0)),backgroundColor:AM_GREEN[i],borderWidth:0}));
+  cMap[id]=new Chart(el,{type:'bar',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}},scales:{x:{stacked:true,ticks:{font:{size:10},color:'#888'},grid:{display:false}},y:{stacked:true,max:100,ticks:{callback:v=>v+'%',font:{size:10},color:'#888'},grid:{color:'rgba(128,128,128,0.1)'}}}}});
+}
+
+// DM trend: MH con nivel 0 (sin defecto) + nivel 1 + nivel 2+ → suma 100%
+function mkTrendDM(id,byDias){
+  const el=document.getElementById(id);if(!el)return;
+  const labels=DIAS_DM.filter(d=>byDias[d]&&byDias[d].n>0);
+  if(!labels.length)return;
+  const getMH=(d,k)=>{
+    const mh=byDias[d]&&byDias[d].def&&byDias[d].def.mh||{};
+    if(k==='0')return+(mh[0]||0).toFixed(1);
+    if(k==='1')return+(mh[1]||0).toFixed(1);
+    // nivel 2+ : todo lo que no es 0 ni 1
+    return+(Object.entries(mh).filter(([kk])=>+kk>=2).reduce((s,[,v])=>s+v,0)).toFixed(1);
+  };
+  const ds=[
+    {label:'Sin defecto (N0)',data:labels.map(d=>getMH(d,'0')),backgroundColor:MH_ORANGE[0],borderWidth:0},
+    {label:'MH nivel 1',       data:labels.map(d=>getMH(d,'1')),backgroundColor:MH_ORANGE[1],borderWidth:0},
+    {label:'MH nivel 2+',      data:labels.map(d=>getMH(d,'2+')),backgroundColor:MH_ORANGE[2],borderWidth:0},
+  ];
+  cMap[id]=new Chart(el,{type:'bar',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}},
+    scales:{x:{stacked:true,ticks:{font:{size:10},color:'#888'},grid:{display:false}},y:{stacked:true,max:100,ticks:{callback:v=>v+'%',font:{size:10},color:'#888'},grid:{color:'rgba(128,128,128,0.1)'}}}}});
+}
+
+function defBar(name,val){
+  const c=trafCol(val);
+  return `<div class="di"><span class="dn">${name}</span><div class="dbbg"><div class="dbfill" style="width:${Math.min(val,100)}%;background:${c}"></div></div><span class="dv" style="color:${c}">${val.toFixed(1)}%</span></div>`;
+}
+
+function renderAMcards(byF){
+  if(!Object.keys(byF).length)return'<div class="empty">Sin datos para la selección.</div>';
+  return Object.keys(byF).map(f=>{
+    const d=byF[f];
+    const n2=+(Object.entries(d.dl).filter(([k])=>+k>=2).reduce((s,[,v])=>s+v,0)).toFixed(1);
+    const moho=pct(d.sec.mp);
+    const fw=getFirmeza(f,dias);
+    return `<div class="card">
+      <div class="ch"><span class="fdot" style="background:${FC[f]||'#888'}"></span><div><div class="cn">${f}</div><div class="cn2">${d.n} frutas · ${dias}</div></div></div>
+      <div class="krow">
+        <div class="kpi"><div class="kv" style="color:${trafCol(n2)}">${n2}%</div><div class="kl">DL nivel 2+</div></div>
+        <div class="kpi"><div class="kv" style="color:${trafCol(moho)}">${moho}%</div><div class="kl">Moho c/ defecto</div></div>
+        <div class="kpi"><div class="kv" style="color:${fwCol(fw)}">${fw!=null?fw+' kgf':'—'}</div><div class="kl">Firmeza prom.</div></div>
+      </div>
+      <div class="clabel">Daño Lenticelar — distribución por nivel</div>
+      <div class="cw"><canvas id="dl-${f}" role="img" aria-label="DL ${f}"></canvas></div>
+      <div class="clabel" style="margin-top:12px">Otros defectos — % afectadas</div>
+      <div class="defrow">${AM_SEC.map(mk=>defBar(AM_LBL[mk],pct(d.sec[mk]))).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderDMcards(byF){
+  if(!Object.keys(byF).length)return'<div class="empty">Sin datos DM. (Disponible en 18 y 25 días)</div>';
+  return Object.keys(byF).map(f=>{
+    const d=byF[f];
+    return `<div class="card">
+      <div class="ch"><span class="fdot" style="background:${FC[f]||'#888'}"></span><div><div class="cn">${f}</div><div class="cn2">${d.n} frutas · ${dias}</div></div></div>
+      <div class="krow2">
+        <div class="kpi"><div class="kv" style="color:${fwCol(d.firmeza)}">${d.firmeza!=null?d.firmeza+' kgf':'—'}</div><div class="kl">Firmeza prom.</div></div>
+        <div class="kpi"><div class="kv" style="color:var(--t1)">${d.diasMad!=null?d.diasMad+' d':'—'}</div><div class="kl">Días maduración</div></div>
+      </div>
+      <div class="clabel">Defectos — % frutas con algún defecto</div>
+      <div class="defrow">${DM_MK.map(mk=>defBar(DM_LBL[mk],pct(d.def[mk]))).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderTrendCards(trend,fundos){
+  const amLeg=AM_GREEN.map((c,i)=>`<span class="li"><span class="lsq" style="background:${c}"></span>N${i+1}</span>`).join('');
+  const dmLeg=`<span class="li"><span class="lsq" style="background:${MH_ORANGE[0]};border:1px solid #ddd"></span>Sin defecto</span><span class="li"><span class="lsq" style="background:${MH_ORANGE[1]}"></span>MH nivel 1</span><span class="li"><span class="lsq" style="background:${MH_ORANGE[2]}"></span>MH nivel 2+</span>`;
+  return fundos.map(f=>`<div class="tcard">
+    <div class="thead" style="color:${FC[f]||'var(--t1)'}">${f} — ${mode==='am'?'Daño Lenticelar':'Mad. Heterogénea'} por días de almacenamiento</div>
+    <div class="tcw"><canvas id="tr-${f}" role="img" aria-label="Tendencia ${f}"></canvas></div>
+    <div class="tleg">${mode==='am'?amLeg:dmLeg}</div>
+  </div>`).join('');
+}
+
+function render(){
+  killCharts();
+  document.getElementById('top-lbl').textContent=`Resultados — ${dias} (${mode==='am'?'AM · Fruta fría':'DM · Fruta madurada'})`;
+  const src=mode==='am'?AM:DM;
+  const byF=mode==='am'?aggAM(src.filter(r=>matchF(r,dias))):aggDM(src.filter(r=>matchF(r,dias)));
+  document.getElementById('cards').innerHTML=mode==='am'?renderAMcards(byF):renderDMcards(byF);
+  document.getElementById('leg').innerHTML=mode==='am'?AM_GREEN.map((c,i)=>`<span class="li"><span class="lsq" style="background:${c}"></span>Nivel ${i+1}</span>`).join(''):'';
+  const trend=aggTrend();
+  const f=gf();
+  const tFundos=Object.keys(trend).filter(fu=>!f.fu||fu===f.fu);
+  document.getElementById('tcards').innerHTML=renderTrendCards(trend,tFundos);
+  setTimeout(()=>{
+    for(const fu of Object.keys(byF))if(mode==='am')mkStackedBar(`dl-${fu}`,byF[fu].dl,AM_GREEN);
+    for(const fu of tFundos)mode==='am'?mkTrendAM(`tr-${fu}`,trend[fu]):mkTrendDM(`tr-${fu}`,trend[fu]);
+  },30);
+}
+
+document.getElementById('m-am').addEventListener('click',()=>{mode='am';document.getElementById('m-am').classList.add('on');document.getElementById('m-dm').classList.remove('on');render();});
+document.getElementById('m-dm').addEventListener('click',()=>{mode='dm';document.getElementById('m-dm').classList.add('on');document.getElementById('m-am').classList.remove('on');render();});
+document.querySelectorAll('.dtab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.dtab').forEach(x=>x.classList.remove('on'));t.classList.add('on');dias=t.dataset.d;render();}));
+['f-fu','f-de','f-ca','f-se'].forEach(id=>document.getElementById(id).addEventListener('change',render));
+render();
+</script>
